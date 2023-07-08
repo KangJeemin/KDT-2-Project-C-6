@@ -1,20 +1,25 @@
 
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
 import { AppService,NaverAPI } from './app.service';
+import { Response } from 'express';
 
 
-@Controller('users')
-export class UsersController {
+@Controller('*')
+export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getUsers(): string {
-    return this.appService.getUsers();
+  gethtml(@Res()res: Response): void{
+    res.sendFile('index.html',{root: 'public'})
+  }
+  @Get('/bundle.js')
+  getjs(@Res()res: Response): void{
+    res.sendFile('bundle.js',{root: 'public'})
   }
 }
 @Controller('API')
 export class NaverController {
-  constructor(private readonly appService: NaverAPI) {}
+  constructor(private readonly Service: NaverAPI) {}
 
   @Get()
   getAPI(): string {

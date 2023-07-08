@@ -7,7 +7,6 @@ import { TextEncoder } from 'util';
 export class AppService {
   getUsers(): string  {
     // 비즈니스 로직을 수행하여 사용자 데이터를 가져온다고 가정
-
     const users = ['User 1', 'User 2', 'User 3'];
 
     return JSON.stringify(users)
@@ -38,3 +37,4 @@ export class NaverAPI {
     return 'a'
   }
 }
+

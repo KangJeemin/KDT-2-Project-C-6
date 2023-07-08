@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import {UsersController,NaverController } from './app.controller';
+import {AppController,NaverController } from './app.controller';
 import { AppService, NaverAPI} from './app.service';
 
 @Module({
   imports: [],
-  controllers: [UsersController,NaverController],
+  controllers: [AppController,NaverController],
   providers: [AppService,NaverAPI],
 })
 export class AppModule {}
